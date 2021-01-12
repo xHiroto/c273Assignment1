@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Register Account</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/all.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="css/jquery-ui.min.css"> 
+        <script src="js/jquery.raty.min.js" type="text/javascript"></script>
+        <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="js/additional-methods.min.js" type="text/javascript"></script>
+        <script src="js/jquery-ui.min.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function () {
+                 $("#slider").slider({
+                    value: 10,
+                    min: 1,
+                    max: 120,
+                    step: 1,
+
+                    slide: function (event, ui) {
+                        $("#num").val(ui.value);
+                    }
+                });
+                $("#num").val($("#slider").slider("value"));
+                $("form").validate({
+                    rules: {
+                        name: {
+                            required: true,
+
+                        },
+                        pw: {
+                            required: true
+
+                        },
+                        messages: {
+                            name: {
+                                required: "Please enter your Username",
+
+                            },
+                            pw: {
+                                required: "Please enter your password"
+                            },
+
+                        },
+                        submitHandler: function () {
+                            return true;
+                        }
+                    },
+                });
+
+            });
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-light navbar-cus">
+            <a class="navbar-brand" href="http://localhost/c273/c273_Assignment/HomePageLog.html#">
+                <img src="images/ych-logo.png" alt=""/>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto" id="navButton">
+                    <li class="nav-item dropdown">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.yishuncommunityhospital.com.sg/about-ych/our-vision-and-mission"  style="color: black">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: black">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: black">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: black">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: black">Exercise</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Account
+                        </button>
+
+                        <div class="dropdown-menu" style="padding: 10px">
+
+                            <a class="dropdown-item" href="http://localhost/c273/c273_Assignment/HomePage.html">Login Out</a> 
+                        </div>
+                </ul>
+
+            </div>
+        </nav>
+        <div class="container">
+            <h2>Exercise:</h2>
+            <form id="defaultForm" action="doExercise.php" method="post">
+                <label for="exercise">Exercise type</label>:<br>
+                <select name="exercise" id="ex">
+                    <option value="walk" selected>Walk</option>
+                    <option value="run">run</option>
+                    <option value="cycle">cycle</option>
+                </select>
+                <div class="form-group">
+                    <label for="id_num">Exercise duration in mins:<input type="text" id="num" readonly style="border:0; color:#f6931f; font-weight:bold; text-align:right" size="1" name="duration"></label>
+                    <div id="slider" name="slider"></div>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Login"/>
+                <input type="reset" class="btn btn-default" id="btnReset" value="Reset"/>
+            </form>
+        </div>
+    </body>
+</html>
